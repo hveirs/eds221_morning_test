@@ -1,0 +1,16 @@
+---
+title: "Data Frames and Indexing"
+author: "Hailey Veirs"
+format: html
+editor: visual
+execute: 
+  echo: true
+  warning: false
+  message: false
+---
+
+```{r}
+library(tidyverse)
+library(janitor)
+```
+
