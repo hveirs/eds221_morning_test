@@ -60,3 +60,108 @@ dog_food[2]
 dog_food["khora"]
 ```
 
+In R, the first element of a matrix/vector will be 1.
+In Python, the first element in a matrix/vector will be 0, because Python and many other languages uses "zero indexing" where an index will always start designated as 0
+
+```{r}
+
+cars <- c("blue", "orange", "white")
+cars[1]
+
+# i basically then returns the values 1 to 2 in the cars vector
+i <- seq(1:2)
+cars[i]
+```
+
+```{r}
+# setting a position as a different value MUTES the original value
+cars[3] <- "yellow"
+cars
+```
+
+## Matricies
+
+```{r}
+fish_size <- matrix(c(12, 14, 18, 20), ncol = 2, nrow = 2, byrow = FALSE)
+fish_size
+
+class(fish_size)
+typeof(fish_size)
+
+#Try indexing
+fish_size[1,1]
+fish_size[2,2]
+```
+
+Create a matrix with different types of values/data
+
+```{r}
+fish_type <- matrix(c(12, "Trout", 18L, 20), ncol = 2, nrow = 2, byrow = FALSE)
+fish_type
+
+class(fish_type)
+typeof(fish_type)
+
+fish_size[2,] # Returns the whole row 2
+fish_size[,1] # Returns the whole column 1
+
+```
+
+## Lists!
+
+Reminder: A list combines vectors that can be different lengths and types
+
+```{r}
+urchins <- list("blue", c(1, 2, 3), c("cat", "dog"), 5L)
+urchins
+
+# To identify a whole section/element of a list, use the double brackets as shown when the vector is called
+urchins[[3]]
+# Two brackets pull out and conserve the class/type of the vector 
+# running urchins[3] will return "cat" "dog", as a list, using double brackets
+# returns "cat" "dog" as a character vector (preserves it better)
+```
+
+Make a named list!
+
+```{r}
+tacos <- list(topping = c("onion", "cilantro", "guac"), 
+              filling = c("beans", "meat", "veggies"), 
+              price = c(6.75, 8.25, 9.50))
+tacos
+
+# Index list elements by name: $
+tacos$filling[2]
+```
+
+Note: To add code into a quarto doc do: use back ticks and "r" with your code after that such as:
+`r tacos$filling[2]`
+
+## Data Frames
+Different ways to make a data frame:
+
+```{r}
+# Make 3 different vectors and use "data.frame"
+topping <- c("onion", "cilantro", "guac")
+filling <- c("beans", "meat", "veggies") 
+price <- c(6.75, 8.25, 9.50)
+
+tacos_df1 <- data.frame(topping, filling, price)
+class(tacos_df1)
+
+# Put everything in the data.frame function
+tacos_df2 <- data.frame(topping = c("sour cream", "salsa", "cheese"), 
+                        filling = c("chicken", "cheese", "cabbage"),
+                        price = c(5.50, 7.50, 10.15))
+
+ex_df3 <- tribble(
+  ~topping, ~filling, ~price,
+  "avocado", "steak", 13.25,
+  "raddish", "fish", 10.40,
+  "salsa", "veggies", 9.75
+)
+
+ex_df3$price[3]
+# binding a data frame by row can involve "rbind"
+```
+
