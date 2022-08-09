@@ -14,3 +14,49 @@ library(tidyverse)
 library(janitor)
 ```
 
+### Vectors
+
+```{r}
+dogs <- c("teddy", "khora", "waffle", "banjo", "tallie")
+
+# check the class
+class(dogs)
+
+```
+
+```{r}
+cats <- c("creamsicle wolf", "finn", "marcy", 12.4, 3.6)
+
+# check the class to see what R decided the numbers should be
+class(cats)
+```
+
+```{r}
+# You can see the underlying data type by using: typeof()
+years <- c(20, 40, 16, 2)
+class(years)
+typeof(years)
+```
+
+```{r}
+# We can ask questions, some return logicals (TRUE/FALSE)
+# == , <= , >= , etc
+# Some are conditional checks
+# is. <<< asks question "is this THIS"
+# as. <<< gives a command "make this THIS"
+
+is.numeric(years)
+# ^^ asks if the object "years" is a numeric vector
+is.character(years)
+```
+
+```{r}
+dog_food <- c(teddy = "purina", khora = "alpo", waffle = "fancy feast")
+# ^^ basically assigns a column name for each value
+
+dog_food[2]
+
+# Returns the value assigned to a the name
+dog_food["khora"]
+```
+
